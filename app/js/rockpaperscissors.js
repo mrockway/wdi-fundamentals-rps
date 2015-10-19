@@ -63,7 +63,7 @@ function getWinner(playerMove,computerMove) {
         winner = 'computer';
     }
     else {
-        winner = 'unknown reslut';
+        winner = 'unknown result';
     }
     return winner;
 }
