@@ -72,8 +72,77 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+  // This function should continue to play Rock Paper Scissors until either the
+  // player or the computer has won five times.
+  // After each 'round', display some text in the console indicating who played
+  // what, who won, and what the current scoreboard looks like.
+  // For example,
+  //  console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+  //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+
+while (playerWins < 5 && computerWins < 5) {
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var roundWinner = getWinner(playerMove,computerMove);
+    if (roundWinner === 'player') {
+        console.log("The human " + roundWinner + " has won.");
+        playerWins +=1;
+    }
+    else if (roundWinner === 'computer') {
+        console.log("The " + roundWinner + " is becoming increasingly self-aware.");
+        computerWins +=1;
+    }
+    else if (roundWinner === 'tie') {
+        console.log("Tie game. Nobody wins. Play again");
+    }
+    console.log("Player chose " + playerMove + " while the Computer chose " + computerMove);
+    console.log("The score is currently " + playerWins + " to " + computerWins);
+    
 }
+if (playerWins === 5) {
+    return "The humans are superior";
+}
+else if (computerWins === 5) {
+    return "Skynet has taken over.  The machines have won";
+}
+return [playerWins, computerWins];
+}
+
+function playToX() {
+    console.log("Let's play Rock, Paper, Scissors");
+    function getGames() {
+        console.log("How many games would you like to play to?")
+        return prompt();
+    }
+    var games = getGames();
+    var playerWins = 0;
+    var computerWins = 0;
+while (playerWins < games && computerWins < games) {
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
+    var roundWinner = getWinner(playerMove,computerMove);
+    if (roundWinner === 'player') {
+        console.log("The human " + roundWinner + " has won.");
+        playerWins +=1;
+    }
+    else if (roundWinner === 'computer') {
+        console.log("The " + roundWinner + " is becoming increasingly self-aware.");
+        computerWins +=1;
+    }
+    else if (roundWinner === 'tie') {
+        console.log("Tie game. Nobody wins. Play again");
+    }
+    console.log("Player chose " + playerMove + " while the Computer chose " + computerMove);
+    console.log("The score is currently " + playerWins + " to " + computerWins);
+    
+}
+if (playerWins == games) {
+    return "The humans are superior";
+}
+else if (computerWins == games) {
+    return "Skynet has taken over.  The machines have won";
+}
+return [playerWins, computerWins];
+}
+playToX();
 
